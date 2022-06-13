@@ -1,6 +1,21 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
   reactStrictMode: true,
-}
-
-module.exports = nextConfig
+  basePath: "/docs",
+  async redirects() {
+    return [
+      {
+        source: "//",
+        destination: "/",
+        permanent: true,
+      }
+    ];
+  },
+  async rewrites() {
+    return [
+      {
+        source: "/index",
+        destination: "/",
+      }
+    ];
+  }
+};
